@@ -1,0 +1,6 @@
+export enum Category {
+  TECHNIQUES,
+  TOOLS,
+  PLATFORMS,
+  LANGUAGES_AND_FRAMEWORKS,
+}
