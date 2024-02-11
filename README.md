@@ -57,8 +57,16 @@ Nächste geplante Schritte:
  - Funktionalitäten für das Feature 'Technologien Administration' fertigstellen.
  - Tests für Services und Komponenten erstellen.
 
+10.02.2024 & 11.02.2024 - 4h
+ - Funktionalitäten für das Feature 'Technologien Administration' fertigstellen.
+ - Routing angepasst
+ - Erster service Test erstellt.
 
-*Aufgewendete Zeit Total: 8h* 
+Nächste geplante Schritte:
+- Weitere Tests erstellen.
+- Design und Layout anpassen
+
+*Aufgewendete Zeit Total: 12h* 
 
 
 # Fazit und Reflexion
