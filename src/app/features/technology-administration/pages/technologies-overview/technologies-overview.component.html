@@ -3,11 +3,13 @@
 <ul class="technologies">
   @for (technology of technologies; track technology.id) {
     <li>
-      <!-- <a routerLink="/detail/{{technology.id}}"> -->
-      <span class="badge">{{technology.id}}</span> {{technology.name}}
-      <!-- </a> -->
-      <button type="button" class="delete" title="delete hero"
+      <a routerLink="{{ technology.id }}">
+        <span class="badge">{{ technology.id }}</span>
+        {{ technology.name }}
+      </a>
+      <button type="button" class="delete" title="delete technology"
               (click)="delete(technology)">x</button>
+
     </li>
   } @empty {
     <span>No technologies available</span>

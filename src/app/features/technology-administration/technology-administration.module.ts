@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
+import {FormsModule} from "@angular/forms";
 import {CommonModule} from '@angular/common';
 import { TechnologyDetailComponent } from './pages/technology-detail/technology-detail.component';
-import {HttpClientModule} from "@angular/common/http";
 import {TechnologiesOverviewComponent} from "./pages/technologies-overview/technologies-overview.component";
+import {RouterModule, Routes} from "@angular/router";
 
+const routes: Routes = [
+  { path: '', component: TechnologiesOverviewComponent },
+  { path: ':id', component: TechnologyDetailComponent }
+]
 
 @NgModule({
   declarations: [
@@ -12,7 +17,8 @@ import {TechnologiesOverviewComponent} from "./pages/technologies-overview/techn
   ],
   imports: [
     CommonModule,
-    HttpClientModule,
+    FormsModule,
+    RouterModule.forChild(routes)
   ]
 })
 export class TechnologyAdministrationModule { }

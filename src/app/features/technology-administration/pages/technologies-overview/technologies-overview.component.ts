@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import {Technology} from "../../types/Technology";
 import {TechnologyService} from "../../services/technology.service";
 
@@ -21,7 +21,6 @@ export class TechnologiesOverviewComponent implements OnInit {
     this.technologyService.getTechnologies()
       .subscribe(technologies => this.technologies = technologies);
   }
-
 
   delete(technology: Technology): void {
     this.technologies = this.technologies.filter(t => t !== technology);

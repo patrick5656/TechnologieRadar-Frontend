@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {catchError, map, Observable, of, tap} from "rxjs";
+import {catchError, Observable, of, tap} from "rxjs";
 import {Technology} from "../types/Technology";
-import {Ring} from "../types/Ring";
-import {Category} from "../types/Category";
 
 
 @Injectable({
@@ -12,7 +10,6 @@ import {Category} from "../types/Category";
 })
 export class TechnologyService {
 
- // private technologyUrl = 'api/technologies';
   private technologyUrl = 'api/technologies';
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
