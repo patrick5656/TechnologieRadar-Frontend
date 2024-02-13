@@ -7,7 +7,10 @@ export interface Technology {
   category: Category,
   ring?: Ring,
   description: string,
-  published: boolean
+  ring_description?: string,
+  published: boolean,
+  createdByUserId: number,
+  createdAt: Date;
+  publishedAt?: Date,
+  lastUpdated?: Date,
 }
-
-

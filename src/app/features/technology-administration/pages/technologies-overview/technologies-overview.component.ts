@@ -1,6 +1,6 @@
 import {Component, OnInit } from '@angular/core';
-import {Technology} from "../../types/Technology";
-import {TechnologyService} from "../../services/technology.service";
+import {Technology} from "../../../../shared/types/Technology";
+import {TechnologyService} from "../../../../shared/services/technology.service";
 
 @Component({
   selector: 'app-technologies-overview',

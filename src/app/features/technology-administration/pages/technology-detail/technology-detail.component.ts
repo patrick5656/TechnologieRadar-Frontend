@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import { Location } from '@angular/common'
-import {Technology} from "../../types/Technology";
-import {TechnologyService} from "../../services/technology.service";
+import {Technology} from "../../../../shared/types/Technology";
+import {TechnologyService} from "../../../../shared/services/technology.service";
 
 @Component({
   selector: 'app-technology-detail',

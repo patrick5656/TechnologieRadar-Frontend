@@ -66,7 +66,18 @@ Nächste geplante Schritte:
 - Weitere Tests erstellen.
 - Design und Layout anpassen
 
-*Aufgewendete Zeit Total: 12h* 
+12.02.2024 - 2h
+ - Anforderungen heruntergebrochen
+ - Struktur angepasst
+ - Technology-Type angepasst
+ - Service für History Einträge erstellt mit InMemoryDbService
+
+Nächste geplante Schritte:
+ - Frontend Layout erstellen
+ - Services ergänzen/anpassen
+  
+
+*Aufgewendete Zeit Total: 14h* 
 
 
 # Fazit und Reflexion

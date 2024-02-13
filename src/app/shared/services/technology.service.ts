@@ -5,7 +5,6 @@ import {Technology} from "../types/Technology";
 
 
 @Injectable({
-  // TODO: Remove from root to be only available from current module
   providedIn: 'root'
 })
 export class TechnologyService {

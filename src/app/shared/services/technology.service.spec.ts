@@ -16,9 +16,14 @@ describe('TechnologyService', () => {
 
   it('should return technology', () => {
     const expectedTechnology: Technology = {
-      id: 1, name: 'Angular', category: Category.LANGUAGES_AND_FRAMEWORKS,
-      description: 'A platform for building mobile and desktop web applications.', published: true
-    }
+      id: 1,
+      name: 'Angular',
+      category: Category.LANGUAGES_AND_FRAMEWORKS,
+      description: 'A platform for building mobile and desktop web applications.',
+      published: true,
+      createdByUserId: 1,
+      createdAt: new Date()
+    };
 
     httpClientSpy.get.and.returnValue(of(expectedTechnology));
     technologyService.getTechnology(1).subscribe(technology=> expect(technology).toEqual(expectedTechnology));
