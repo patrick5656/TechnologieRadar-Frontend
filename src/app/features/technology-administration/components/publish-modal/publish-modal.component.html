@@ -1,0 +1,31 @@
+<dialog open>
+  <article>
+    <header>
+      <button (click)="returnFromPublishModal()" aria-label="Close" rel="prev" ></button>
+      <p>Publish activity: {{ technology.name }}</p>
+    </header>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+      <div>
+        <label for="ring-control">Ring</label>
+        <select id="ring-control" formControlName="ring" class="form-control">
+          <option *ngFor="let ring of ringValues | keyvalue" [value]="ring.value" [selected]="technology.ring === ring.value">{{ ring.value }}</option>
+        </select>
+        <div *ngIf="submitted && registerForm.controls?.['ring']?.['errors']" class="invalid-feedback">
+          <div *ngIf="registerForm.controls?.['ring']?.['errors']?.['required']">Ring is required</div>
+          <div *ngIf="registerForm.controls?.['ring']?.['errors']?.['ring']">Ring must be a valid value</div>
+        </div>
+      </div>
+
+      <div>
+        <label for="ring-description-control">Ring description</label>
+        <input id="ring-description-control" type="text" formControlName="ring_description" class="form-control"/>
+        <div *ngIf="submitted && registerForm.controls?.['ring_description']?.['errors']" class="invalid-feedback">
+          <div *ngIf="registerForm.controls?.['ring_description']?.['errors']?.['required']">Ring description is required</div>
+        </div>
+      </div>
+      <div>
+        <button>Publish</button>
+      </div>
+    </form>
+  </article>
+</dialog>
