@@ -1,10 +1,12 @@
-
+<section class="technologyDetail">
 @if (technology) {
   <div>
-    <h2>{{ technology.name }} Details</h2>
-    <div>id: {{ technology.id }}</div>
+    <hgroup>
+      <h4>Edit Technology </h4>
+      <label for="name">Technology {{ technology.name }} </label>
+    </hgroup>
+
     <div>
-      <label for="name">Hero name: </label>
       <input id="name" [(ngModel)]="technology.name" placeholder="technology name" />
       <input id="category" [(ngModel)]="technology.category" placeholder="category" />
       <input id="ring" [(ngModel)]="technology.ring" placeholder="ring" />
@@ -16,3 +18,4 @@
 
 <button type="button" (click)="save()">save</button>
 <button type="button" (click)="goBack()">go back</button>
+</section>

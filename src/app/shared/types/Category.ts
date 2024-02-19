@@ -1,6 +1,6 @@
 export enum Category {
-  TECHNIQUES,
-  TOOLS,
-  PLATFORMS,
-  LANGUAGES_AND_FRAMEWORKS,
+  TECHNIQUES= 'Techniques',
+  TOOLS = 'Tools',
+  PLATFORMS = 'Platforms',
+  LANGUAGES_AND_FRAMEWORKS = 'Languages & Framework',
 }

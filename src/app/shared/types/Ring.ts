@@ -1,6 +1,6 @@
 export enum Ring {
-  ADOPT,
-  TRIAL,
-  ASSESS,
-  HOLD,
+  ADOPT= 'Adopt',
+  TRIAL = 'Trial',
+  ASSESS = 'Assess',
+  HOLD = 'Hold',
 }

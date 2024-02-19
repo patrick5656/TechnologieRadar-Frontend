@@ -1,17 +1,49 @@
-<h2>Technologies</h2>
+<section class="technologiesOverview">
+<h4>Technologies</h4>
+<table style="background-color:#33475b">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Category</th>
+      <th scope="col">Description</th>
+      <th scope="col">Ring</th>
+      <th scope="col">Ring description</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
 
-<ul class="technologies">
   @for (technology of technologies; track technology.id) {
-    <li>
-      <a routerLink="{{ technology.id }}">
-        <span class="badge">{{ technology.id }}</span>
-        {{ technology.name }}
-      </a>
-      <button type="button" class="delete" title="delete technology"
-              (click)="delete(technology)">x</button>
+      <tr [ngClass]="{'published' : technology.published}">
+      <th>{{technology.name}}</th>
+      <th>{{technology.category}}</th>
+        <th>{{technology.description}}</th>
+        <th>{{technology.ring}}</th>
+        <th>{{technology.ring_description}}</th>
+        @if (technology.published) {
+          <th></th>
+        } @else {
+          <th>
+            <a (click)="showPublishModal(technology)">
+              <img class="iconMinWidth" ngSrc="/assets/icons/publish_icon.png" alt="publish" height="48" width="48">
+            </a>
+          </th>
+        }
+        <th>
+        <a routerLink="{{ technology.id }}">
+          <img class="iconMinWidth" ngSrc="/assets/icons/edit_icon.png" alt="edit" height="48" width="48">
+        </a>
+      </th>
 
-    </li>
+    </tr>
   } @empty {
     <span>No technologies available</span>
   }
-</ul>
+</table>
+  @if (technologyToPublish !== null && !technologyToPublish.published) {
+    <publish-modal
+      [(technology)]="technologyToPublish"
+    ></publish-modal>
+  }
+
+</section>

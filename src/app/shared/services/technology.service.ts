@@ -26,7 +26,7 @@ export class TechnologyService {
   }
 
   getTechnologies(): Observable<Technology[]> {
-    return this.http.get<any[]>(this.technologyUrl).pipe(
+    return this.http.get<Technology[]>(this.technologyUrl).pipe(
       tap(_ => this.log('fetched technologies')),
       catchError(this.handleError<Technology[]>('getTechnologies', []))
     );

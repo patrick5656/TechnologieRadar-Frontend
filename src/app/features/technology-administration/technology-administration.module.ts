@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import {FormsModule} from "@angular/forms";
-import {CommonModule} from '@angular/common';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import { TechnologyDetailComponent } from './pages/technology-detail/technology-detail.component';
 import {TechnologiesOverviewComponent} from "./pages/technologies-overview/technologies-overview.component";
 import {RouterModule, Routes} from "@angular/router";
+import { PublishModalComponent } from './components/publish-modal/publish-modal.component';
 
 const routes: Routes = [
   { path: '', component: TechnologiesOverviewComponent },
@@ -13,12 +14,15 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     TechnologiesOverviewComponent,
-    TechnologyDetailComponent
+    TechnologyDetailComponent,
+    PublishModalComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    NgOptimizedImage,
+    ReactiveFormsModule
   ]
 })
 export class TechnologyAdministrationModule { }

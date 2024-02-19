@@ -1,0 +1,9 @@
+header {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  margin-top: 5px;
+}
+
+.is-active {
+  background-color: #99CCFF;
+}

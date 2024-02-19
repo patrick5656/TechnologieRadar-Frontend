@@ -8,8 +8,9 @@ import {TechnologyService} from "../../../../shared/services/technology.service"
   styleUrl: './technologies-overview.component.css'
 })
 export class TechnologiesOverviewComponent implements OnInit {
-
   technologies: Technology[] = [];
+  public technologyToPublish: Technology | null = null;
+
 
   constructor(private technologyService: TechnologyService) { }
 
@@ -22,9 +23,8 @@ export class TechnologiesOverviewComponent implements OnInit {
       .subscribe(technologies => this.technologies = technologies);
   }
 
-  delete(technology: Technology): void {
-    this.technologies = this.technologies.filter(t => t !== technology);
-    this.technologyService.deleteTechnology(technology.id).subscribe();
+  showPublishModal(technology: Technology): void {
+    this.technologyToPublish = technology;
   }
 
 }
