@@ -50,35 +50,31 @@ Ich habe mich jedoch dazu entschieden, meine Angular App modular aufzubauen für
  - Recherche zur Dokumentation (arc42)
  - Erstellung der initialen Dokumentation
  - Erstellung der Angular application mit einem modularen Aufbau
- - Erstellung der Funktionalität 'Technologien anzeigen und löschen' mit InMemoryApi umgesetzt.
- - Nachführen des Arbeitsjournals
+ - Erstellung eines Grundgerüst zum speichern und anzeigen von Technologien.
 
-Nächste geplante Schritte:
- - Funktionalitäten für das Feature 'Technologien Administration' fertigstellen.
- - Tests für Services und Komponenten erstellen.
 
 10.02.2024 & 11.02.2024 - 4h
- - Funktionalitäten für das Feature 'Technologien Administration' fertigstellen.
+ - Funktionalitäten zum speichern/lesen von Technologien erweitert
  - Routing angepasst
  - Erster service Test erstellt.
 
-Nächste geplante Schritte:
-- Weitere Tests erstellen.
-- Design und Layout anpassen
 
 12.02.2024 - 2h
- - Anforderungen heruntergebrochen
- - Struktur angepasst
+ - Projekt struktur angepasst
  - Technology-Type angepasst
  - Service für History Einträge erstellt mit InMemoryDbService
 
-Nächste geplante Schritte:
- - Frontend Layout erstellen
- - Services ergänzen/anpassen
-  
+19.02.2024 - 10h
+ - CSS Framework rechechiert.
+ - Layout erstellt für die Seite mit pico css
+ - Overview der Administationsseite überarbeitet
+ - Modal erstellt um nicht publizierte Technologien zu veröffentlichen
 
-*Aufgewendete Zeit Total: 14h* 
+*Aufgewendete Zeit Total: 24h* 
 
 
 # Fazit und Reflexion
-TODO:
+Fazit und Reflexion: Vorgehen war bisschen chaotisch. Ziel war zunächst eine Grundstruktur zu erstellen und bis dahin war alles durcheinander.
+Ausserdem habe ich einige Anforderungen gar nicht im Auge gehabt, weswegen diese noch nachträglich angepasst werden mussten.
+
+Ziel am Anfang den Aufbau fertig machen, um genügend früh fragen stellen bei Problemen.
