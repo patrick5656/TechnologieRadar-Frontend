@@ -46,16 +46,6 @@ export class TechnologyService {
     );
   }
 
-  deleteTechnology(id: number): Observable<Technology> {
-    const url = `${this.technologyUrl}/${id}`;
-
-    return this.http.delete<Technology>(url, this.httpOptions)
-      .pipe(
-        tap(_ => this.log(`deleted hero = ${id}`)),
-        catchError(this.handleError<Technology>('deleteTechnology'))
-      )
-  }
-
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

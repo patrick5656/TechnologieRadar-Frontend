@@ -40,7 +40,6 @@ export class PublishModalComponent implements OnInit{
   onSubmit(data: FormValues) {
     this.submitted = true;
 
-    console.log(this.registerForm.controls?.['ring']?.['errors'] );
     if (this.registerForm.invalid) {
       return;
     }
@@ -60,6 +59,7 @@ export class PublishModalComponent implements OnInit{
 
   getRingFromString(ringString: string): Ring | undefined {
     const ringEntries = Object.entries(Ring);
+    // TODO: Update to only get values
     const matchingRingEntry = ringEntries.find(([key, value]) => value === ringString);
 
     if (matchingRingEntry) {

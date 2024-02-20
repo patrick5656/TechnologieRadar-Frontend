@@ -1,0 +1,48 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+
+  <div>
+    <label for="name-control">Name</label>
+    <input id="name-control" type="text" formControlName="name" class="form-control"
+           [attr.aria-invalid]="submitted ? (registerForm.controls['name'].errors ? 'true' : 'false') : null"/>
+    <small *ngIf="submitted && registerForm.controls['name'].errors">
+      <div *ngIf="registerForm.controls?.['name']?.['errors']?.['required']">Name is required</div>
+    </small>
+  </div>
+
+  <div>
+    <label for="category-control">Category</label>
+    <select id="category-control" formControlName="category" class="form-control"
+            [attr.aria-invalid]="submitted ? (registerForm.controls['category'].errors ? 'true' : 'false') : null">
+      <option *ngFor="let category of categoryValues | keyvalue" [value]="category.value"
+              [selected]="(technology ? technology.category : '') === category.value">{{ category.value }}
+      </option>
+    </select>
+    <small *ngIf="submitted && registerForm.controls['category'].errors">
+      <div *ngIf="registerForm.controls?.['category']?.['errors']?.['required']">Category is required</div>
+    </small>
+  </div>
+
+  <div>
+    <label for="description-control">Description</label>
+    <textarea id="description-control" type="text" formControlName="description" class="form-control"
+           [attr.aria-invalid]="submitted ? (registerForm.controls['description'].errors ? 'true' : 'false') : null"></textarea>
+    <small *ngIf="submitted && registerForm.controls['description'].errors">
+      <div *ngIf="registerForm.controls?.['description']?.['errors']?.['required']">Description is required</div>
+    </small>
+  </div>
+
+  <div>
+    <label for="ring-control">Ring</label>
+    <select id="ring-control" formControlName="ring" class="form-control">
+      <option *ngFor="let ring of ringValues | keyvalue" [value]="ring.value" [selected]="(technology ? technology.ring : '') === ring.value">{{ ring.value }}</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="ring-description-control">Ring description</label>
+    <input id="ring-description-control" type="text" formControlName="ring_description" class="form-control"/>
+  </div>
+  <div>
+    <button>{{ technology ? 'Update' : 'Create' }}</button>
+  </div>
+</form>

@@ -1,22 +1,19 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import { Location } from '@angular/common'
 import {Technology} from "../../../../shared/types/Technology";
 import {TechnologyService} from "../../../../shared/services/technology.service";
 
 @Component({
-  selector: 'app-technology-detail',
-  templateUrl: './technology-detail.component.html',
-  styleUrl: './technology-detail.component.css'
+  selector: 'app-technology-edit',
+  templateUrl: './technology-edit.component.html',
+  styleUrl: './technology-edit.component.css'
 })
-export class TechnologyDetailComponent implements OnInit {
-  @Input({required: true})
+export class TechnologyEditComponent implements OnInit {
   public technology!: Technology
 
   constructor(
     private route: ActivatedRoute,
     private technologyService: TechnologyService,
-    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -24,18 +21,9 @@ export class TechnologyDetailComponent implements OnInit {
   }
 
   loadTechnology(): void {
+    console.log('wtf?');
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.technologyService.getTechnology(id).subscribe((technology) => (this.technology = technology));
-  }
-
-  goBack() {
-    this.location.back();
-  }
-
-  save(): void {
-    if (this.technology) {
-      this.technologyService.updateTechnology(this.technology).subscribe(() => this.goBack());
-    }
   }
 
 }

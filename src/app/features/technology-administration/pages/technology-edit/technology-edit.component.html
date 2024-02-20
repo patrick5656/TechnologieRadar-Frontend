@@ -1,0 +1,13 @@
+<section class="technologyDetail">
+@if (technology) {
+  <div>
+    <hgroup>
+      <h4>Edit Technology </h4>
+      <span>Technology {{ technology.name }} </span>
+    </hgroup>
+      <technology-form
+        [(technology)]="technology"
+      ></technology-form>
+  </div>
+}
+</section>
