@@ -70,6 +70,9 @@ Ich habe mich jedoch dazu entschieden, meine Angular App modular aufzubauen für
  - Overview der Administationsseite überarbeitet
  - Modal erstellt um nicht publizierte Technologien zu veröffentlichen
 
+20.02.2024 - 
+ - Fertigstellung der Ansicht und Logik zum Publizieren einer Technology. (1.5h)
+
 *Aufgewendete Zeit Total: 24h* 
 
 

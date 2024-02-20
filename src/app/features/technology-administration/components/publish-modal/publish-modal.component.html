@@ -7,21 +7,22 @@
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
       <div>
         <label for="ring-control">Ring</label>
-        <select id="ring-control" formControlName="ring" class="form-control">
+        <select id="ring-control" formControlName="ring" class="form-control"
+                [attr.aria-invalid]="submitted ? (registerForm.controls['ring'].errors ? 'true' : 'false') : null">
           <option *ngFor="let ring of ringValues | keyvalue" [value]="ring.value" [selected]="technology.ring === ring.value">{{ ring.value }}</option>
         </select>
-        <div *ngIf="submitted && registerForm.controls?.['ring']?.['errors']" class="invalid-feedback">
+        <small *ngIf="submitted && registerForm.controls['ring'].errors">
           <div *ngIf="registerForm.controls?.['ring']?.['errors']?.['required']">Ring is required</div>
-          <div *ngIf="registerForm.controls?.['ring']?.['errors']?.['ring']">Ring must be a valid value</div>
-        </div>
+        </small>
       </div>
 
       <div>
         <label for="ring-description-control">Ring description</label>
-        <input id="ring-description-control" type="text" formControlName="ring_description" class="form-control"/>
-        <div *ngIf="submitted && registerForm.controls?.['ring_description']?.['errors']" class="invalid-feedback">
+        <input id="ring-description-control" type="text" formControlName="ring_description" class="form-control"
+               [attr.aria-invalid]="submitted ? (registerForm.controls['ring_description'].errors ? 'true' : 'false') : null"/>
+        <small *ngIf="submitted && registerForm.controls['ring_description'].errors">
           <div *ngIf="registerForm.controls?.['ring_description']?.['errors']?.['required']">Ring description is required</div>
-        </div>
+        </small>
       </div>
       <div>
         <button>Publish</button>

@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Technology} from "../../../../shared/types/Technology";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Ring} from "../../../../shared/types/Ring";
+import {TechnologyService} from "../../../../shared/services/technology.service";
 
 interface FormValues {
   ring: string,
@@ -25,7 +26,8 @@ export class PublishModalComponent implements OnInit{
   public ringValues = Object.values(Ring);
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private technologyService: TechnologyService,
   ) {}
 
   ngOnInit() {
@@ -38,15 +40,33 @@ export class PublishModalComponent implements OnInit{
   onSubmit(data: FormValues) {
     this.submitted = true;
 
+    console.log(this.registerForm.controls?.['ring']?.['errors'] );
     if (this.registerForm.invalid) {
       return;
     }
 
-    console.log("Submit: ", data);
+
+    this.technology.ring = this.getRingFromString(data.ring);
+    this.technology.ring_description = data.ring_description;
+    this.technology.published = true;
+    this.technologyService.updateTechnology(this.technology);
+    this.returnFromPublishModal();
   }
 
   returnFromPublishModal(): void {
     this.technologyChange.emit(null);
+  }
+
+
+  getRingFromString(ringString: string): Ring | undefined {
+    const ringEntries = Object.entries(Ring);
+    const matchingRingEntry = ringEntries.find(([key, value]) => value === ringString);
+
+    if (matchingRingEntry) {
+      return matchingRingEntry[1] as Ring;
+    }
+
+    return undefined;
   }
 
 }
