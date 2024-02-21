@@ -21,7 +21,6 @@ export class TechnologyEditComponent implements OnInit {
   }
 
   loadTechnology(): void {
-    console.log('wtf?');
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.technologyService.getTechnology(id).subscribe((technology) => (this.technology = technology));
   }

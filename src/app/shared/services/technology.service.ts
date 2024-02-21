@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {catchError, Observable, of, tap} from "rxjs";
 import {Technology} from "../types/Technology";
+import {TechnologyInsertDTO} from "../types/DTO/TechnologyInsertDTO";
+import {TechnologyUpdateDTO} from "../types/DTO/TechnologyUpdateDTO";
+import {TechnologyUpdateRingDTO} from "../types/DTO/TechnologyUpdateRingDto";
+import {TechnologyPublishDTO} from "../types/DTO/TechnologyPublishDTO";
 
 
 @Injectable({
@@ -9,7 +13,7 @@ import {Technology} from "../types/Technology";
 })
 export class TechnologyService {
 
-  private technologyUrl = 'api/technologies';
+  private technologyUrl = 'http://localhost:3000/api/technology';
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -26,25 +30,40 @@ export class TechnologyService {
   }
 
   getTechnologies(): Observable<Technology[]> {
-    return this.http.get<Technology[]>(this.technologyUrl).pipe(
+    return this.http.get<Technology[]>('http://localhost:3000/api/technologies').pipe(
       tap(_ => this.log('fetched technologies')),
       catchError(this.handleError<Technology[]>('getTechnologies', []))
     );
   }
 
-  addTechnology(technology: Technology): Observable<Technology> {
+  addTechnology(technology: TechnologyInsertDTO): Observable<Technology> {
     return this.http.post<Technology>(this.technologyUrl, technology, this.httpOptions).pipe(
       tap((newTechnology: Technology) => this.log(`added technology w/ id=${newTechnology.id}`)),
       catchError(this.handleError<Technology>('addTechnology'))
     );
   }
 
-  updateTechnology(technology: Technology): Observable<any> {
-    return this.http.put(this.technologyUrl, technology, this.httpOptions).pipe(
+  updateTechnology(technology: TechnologyUpdateDTO): Observable<any> {
+    return this.http.put(`${this.technologyUrl}/${technology.id}`, technology, this.httpOptions).pipe(
       tap(_ => this.log(`updated technology id=${technology.id}`)),
       catchError(this.handleError<Technology>('updateTechnology'))
     );
   }
+
+  updateTechnologyRing(technology: TechnologyUpdateRingDTO): Observable<any> {
+    return this.http.put(`${this.technologyUrl}/${technology.id}/ring`, technology, this.httpOptions).pipe(
+      tap(_ => this.log(`updated technology id=${technology.id}`)),
+      catchError(this.handleError<Technology>('updateTechnology'))
+    );
+  }
+
+  publishTechnology(technology: TechnologyPublishDTO): Observable<any> {
+    return this.http.put(`${this.technologyUrl}/${technology.id}/publish`, technology, this.httpOptions).pipe(
+      tap(_ => this.log(`updated technology id=${technology.id}`)),
+      catchError(this.handleError<Technology>('updateTechnology'))
+    );
+  }
+
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

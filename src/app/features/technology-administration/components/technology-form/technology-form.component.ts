@@ -5,6 +5,7 @@ import {Ring} from "../../../../shared/types/Ring";
 import {Category} from "../../../../shared/types/Category";
 import {TechnologyService} from "../../../../shared/services/technology.service";
 import { Location } from '@angular/common'
+import {TechnologyInsertDTO} from "../../../../shared/types/DTO/TechnologyInsertDTO";
 
 
 interface FormValues {
@@ -62,19 +63,17 @@ export class TechnologyFormComponent implements OnInit{
     }
 
     if (this.technology === null || this.technology === undefined) {
-      this.technology = {
-        id: 0,
+      let technologyInsertDto: TechnologyInsertDTO = {
         name: data.name,
         category: category,
         description: data.description,
         ring: this.getRingFromString(data.ring),
-        ring_description: data.ring_description,
-        published: false,
-        createdByUserId: 0,
-        createdAt: new Date()
+        ring_description: data.ring_description
+        // TODO: send created by user
       }
+      this.technologyService.addTechnology(technologyInsertDto).subscribe(() => this.location.back());
 
-      this.technologyService.addTechnology(this.technology).subscribe(() => this.location.back());
+
     } else {
       this.technology.name = data.name;
       this.technology.description = data.description;

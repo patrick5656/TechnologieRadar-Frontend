@@ -75,6 +75,10 @@ Ich habe mich jedoch dazu entschieden, meine Angular App modular aufzubauen für
  - Erstellung der Formulare zum erstellen von einer Technologie sowie zum bearbeiten
  - Begonnen mit dem erstellen des Backends (Node js mit einem simplen Get Endpoint sowie connection auf eine MySql Datenbank)  --> Uncommited
 
+21.02.2024 - 4.5 morgen + 4h nachmittag
+ - Fertigstellung des Backends Endpoints zum Erstellen, Bearbeiten und Lesen von Technologien
+ - Anpassen des Frontends um das Backeend aufzurufen.
+
 *Aufgewendete Zeit Total: 32h* 
 
 
