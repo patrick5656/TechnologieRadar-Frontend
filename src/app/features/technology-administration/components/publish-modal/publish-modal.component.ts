@@ -58,9 +58,8 @@ export class PublishModalComponent implements OnInit{
 
 
   getRingFromString(ringString: string): Ring | undefined {
-    const ringEntries = Object.entries(Ring);
-    // TODO: Update to only get values
-    const matchingRingEntry = ringEntries.find(([key, value]) => value === ringString);
+    const ringEntries = Object.values(Ring);
+    const matchingRingEntry = ringEntries.find((value) => value === ringString);
 
     if (matchingRingEntry) {
       return matchingRingEntry[1] as Ring;

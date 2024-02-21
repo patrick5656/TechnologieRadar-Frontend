@@ -85,9 +85,8 @@ export class TechnologyFormComponent implements OnInit{
   }
 
   getRingFromString(ringString: string | undefined): Ring | undefined {
-    const ringEntries = Object.entries(Ring);
-    // TODO: Update to only get values
-    const matchingRingEntry = ringEntries.find(([key, value]) => value === ringString);
+    const ringEntries = Object.values(Ring);
+    const matchingRingEntry = ringEntries.find((value) => value === ringString);
 
     if (matchingRingEntry) {
       return matchingRingEntry[1] as Ring;
@@ -107,4 +106,7 @@ export class TechnologyFormComponent implements OnInit{
     return null;
   }
 
+  back() {
+    this.location.back();
+  }
 }

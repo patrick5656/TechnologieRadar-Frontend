@@ -42,7 +42,8 @@
     <label for="ring-description-control">Ring description</label>
     <input id="ring-description-control" type="text" formControlName="ring_description" class="form-control"/>
   </div>
-  <div>
+  <div class="container">
     <button>{{ technology ? 'Update' : 'Create' }}</button>
+    <button (click)="back()">Back</button>
   </div>
 </form>
