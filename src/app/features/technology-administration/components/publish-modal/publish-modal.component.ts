@@ -3,6 +3,7 @@ import {Technology} from "../../../../shared/types/Technology";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Ring} from "../../../../shared/types/Ring";
 import {TechnologyService} from "../../../../shared/services/technology.service";
+import {TechnologyPublishDTO} from "../../../../shared/types/DTO/TechnologyPublishDTO";
 
 interface FormValues {
   ring: string,
@@ -44,12 +45,17 @@ export class PublishModalComponent implements OnInit{
       return;
     }
 
-
-    this.technology.ring = this.getRingFromString(data.ring);
-    this.technology.ring_description = data.ring_description;
-    this.technology.published = true;
-    this.technologyService.updateTechnology(this.technology);
-    this.returnFromPublishModal();
+    let ring= this.getRingFromString(data.ring);
+    if (ring === undefined) {
+      return;
+    }
+    let technologyPublishDto: TechnologyPublishDTO = {
+      id: this.technology.id,
+      ring: ring,
+      ring_description: data.ring_description,
+    }
+    console.log(technologyPublishDto);
+    this.technologyService.publishTechnology(technologyPublishDto).subscribe(() => this.returnFromPublishModal());
   }
 
   returnFromPublishModal(): void {
@@ -62,7 +68,7 @@ export class PublishModalComponent implements OnInit{
     const matchingRingEntry = ringEntries.find((value) => value === ringString);
 
     if (matchingRingEntry) {
-      return matchingRingEntry[1] as Ring;
+      return matchingRingEntry as Ring;
     }
 
     return undefined;

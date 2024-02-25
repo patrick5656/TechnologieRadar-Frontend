@@ -75,11 +75,29 @@ Ich habe mich jedoch dazu entschieden, meine Angular App modular aufzubauen für
  - Erstellung der Formulare zum erstellen von einer Technologie sowie zum bearbeiten
  - Begonnen mit dem erstellen des Backends (Node js mit einem simplen Get Endpoint sowie connection auf eine MySql Datenbank)  --> Uncommited
 
-21.02.2024 - 4.5 morgen + 4h nachmittag
+21.02.2024 - 4 morgen + 5h nachmittag
  - Fertigstellung des Backends Endpoints zum Erstellen, Bearbeiten und Lesen von Technologien
- - Anpassen des Frontends um das Backeend aufzurufen.
+ - Anpassen des Frontends um das Backend aufzurufen.
+ - Hinzufügen Add Technology Button sowie Zurück Button
 
-*Aufgewendete Zeit Total: 32h* 
+22.02.2024 - 2h
+ - Hinzufügen von einer Change History Tabelle
+ - Schreiben in die Change History Tabelle beim Insert
+
+23.02.2024 - 7h
+ - Backend angepasst für besseres Testing zu ermöglichen.
+ - Erster Unit Test erstellt für Endpoint mit Sinon Mock
+
+24.02.2024 - 2h
+ - Restliche Tests im Backend erstellt.
+
+25.02.2024 - 3h
+ - Anpassung des Frontend um die korrekten Endpunkte aufzurufen
+ - Validierung für Ring und Ring description erstellt (beide required sobald eines gesetz ansonsten optional)
+
+
+
+*Aufgewendete Zeit Total: 55h* 
 
 
 # Fazit und Reflexion
