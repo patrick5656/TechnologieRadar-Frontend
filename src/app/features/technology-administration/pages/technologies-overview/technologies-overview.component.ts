@@ -9,13 +9,24 @@ import {TechnologyService} from "../../../../shared/services/technology.service"
 })
 export class TechnologiesOverviewComponent implements OnInit {
   technologies: Technology[] = [];
-  public technologyToPublish: Technology | null = null;
+  private _technologyToPublish: Technology | null = null;
 
 
   constructor(private technologyService: TechnologyService) { }
 
   ngOnInit(): void {
     this.getTechnologies();
+  }
+
+  get technologyToPublish(): Technology | null {
+    return this._technologyToPublish;
+  }
+
+  set technologyToPublish(value: Technology | null) {
+    this._technologyToPublish = value;
+    if (!this._technologyToPublish) {
+      this.getTechnologies();
+    }
   }
 
   getTechnologies(): void {
