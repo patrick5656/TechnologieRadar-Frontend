@@ -92,14 +92,15 @@ Ich habe mich jedoch dazu entschieden, meine Angular App modular aufzubauen für
  - Restliche Tests im Backend erstellt.
  - Verwendung von Enviroments Variablen
 
-25.02.2024 - 7h
+25.02.2024 - 8h
  - Anpassung des Frontend um die korrekten Endpunkte aufzurufen
  - Validierung für Ring und Ring description erstellt (beide required sobald eines gesetz ansonsten optional)
  - Neue Ansicht erstellt für Benutzer mit Gruppierung nach Kategorie oder Einordnung
  - Ausblenden der Descriptions in der Tabelle bei kleinem Screen
  - Kleinere Anpassung im Layout
+ - Erstellung von tests im Frontend
 
-*Aufgewendete Zeit Total: 57h* 
+*Aufgewendete Zeit Total: 58h* 
 
 
 # Fazit und Reflexion
