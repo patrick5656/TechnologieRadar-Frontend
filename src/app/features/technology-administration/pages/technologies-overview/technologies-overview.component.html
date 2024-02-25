@@ -1,7 +1,7 @@
 <section class="technologiesOverview">
   <h4>
     Technologies
-    <a [routerLink]="['create']">
+    <a [routerLink]="['create/new']">
     <img class="iconMinWidth" ngSrc="/assets/icons/add_icon.png" alt="add" height="48" width="48">
     </a>
   </h4>
@@ -10,9 +10,9 @@
     <tr>
       <th scope="col">Name</th>
       <th scope="col">Category</th>
-      <th scope="col">Description</th>
+      <th scope="col" class="description-col">Description</th>
       <th scope="col">Ring</th>
-      <th scope="col">Ring description</th>
+      <th scope="col" class="description-col">Ring description</th>
       <th scope="col"></th>
       <th scope="col"></th>
     </tr>
@@ -22,9 +22,9 @@
       <tr [ngClass]="{'published' : technology.published}">
       <th>{{technology.name}}</th>
       <th>{{technology.category}}</th>
-        <th>{{technology.description}}</th>
+        <th class="description-col">{{technology.description}}</th>
         <th>{{technology.ring}}</th>
-        <th>{{technology.ring_description}}</th>
+        <th class="description-col">{{technology.ring_description}}</th>
         @if (technology.published) {
           <th></th>
         } @else {
@@ -35,7 +35,7 @@
           </th>
         }
         <th>
-        <a routerLink="{{ technology.id }}">
+          <a [routerLink]="[technology.id]">
           <img class="iconMinWidth" ngSrc="/assets/icons/edit_icon.png" alt="edit" height="48" width="48">
         </a>
       </th>

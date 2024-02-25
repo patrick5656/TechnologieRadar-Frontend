@@ -45,7 +45,6 @@
       </table>
     </div>
   } @else {
-    <!-- Iterate over each group and display in separate tables -->
     <div *ngFor="let group of groupedByRingTechnologies | keyvalue">
       <h5 *ngIf="group.key">{{ group.key }}</h5>
       <table>
@@ -78,6 +77,5 @@
       No technologies published
     </span>
   }
-
 
 </section>

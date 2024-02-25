@@ -10,7 +10,7 @@ import { TechnologyCreateComponent } from './pages/technology-create/technology-
 
 const routes: Routes = [
   { path: '', component: TechnologiesOverviewComponent },
-  { path: 'create', component: TechnologyCreateComponent },
+  { path: 'create/new', component: TechnologyCreateComponent },
   { path: ':id', component: TechnologyEditComponent }
 ]
 

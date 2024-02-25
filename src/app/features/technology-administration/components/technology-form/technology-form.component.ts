@@ -9,6 +9,8 @@ import {TechnologyInsertDTO} from "../../../../shared/types/DTO/TechnologyInsert
 import {TechnologyUpdateDTO} from "../../../../shared/types/DTO/TechnologyUpdateDTO";
 import {TechnologyUpdateRingDTO} from "../../../../shared/types/DTO/TechnologyUpdateRingDto";
 import { forkJoin, tap} from "rxjs";
+import {Router} from "@angular/router";
+
 
 
 interface FormValues {
@@ -40,7 +42,8 @@ export class TechnologyFormComponent implements OnInit{
   constructor(
     private formBuilder: FormBuilder,
     private technologyService: TechnologyService,
-    private location: Location
+    private location: Location,
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -176,6 +179,6 @@ export class TechnologyFormComponent implements OnInit{
   }
 
   back() {
-    this.location.back();
+    this.router.navigateByUrl('/manageTechnologies');
   }
 }

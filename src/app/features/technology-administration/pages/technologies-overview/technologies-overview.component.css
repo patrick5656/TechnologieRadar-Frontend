@@ -1,9 +1,10 @@
-
-.published > tr { background-color: slategrey;}
-.published > td { background: green;}
-
-
 .iconMinWidth {
   min-width: 20px;
   min-height: 20px;
+}
+
+@media (max-width: 768px) {
+  .description-col {
+    display: none;
+  }
 }
