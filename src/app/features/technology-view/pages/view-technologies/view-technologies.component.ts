@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Technology} from "../../../../shared/types/Technology";
 import {TechnologyService} from "../../../../shared/services/technology.service";
+import {Category} from "../../../../shared/types/Category";
 
 
 @Component({
@@ -30,9 +31,6 @@ export class ViewTechnologiesComponent implements OnInit {
           this.groupTechnologiesByCategory(tech);
           this.groupTechnologiesByRing(tech);
         });
-        console.log(this.groupedByCategoryTechnologies);
-        console.log('te12');
-        console.log(this.groupedByRingTechnologies);
       });
   }
 
