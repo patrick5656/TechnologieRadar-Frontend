@@ -8,6 +8,13 @@ const routes: Routes = [
       import('./features/technology-administration/technology-administration.module').then(
         (m) => m.TechnologyAdministrationModule
       )
+  },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./features/technology-view/technology-view.module').then(
+        (m) => m.TechnologyViewModule
+      )
   }
 ];
 

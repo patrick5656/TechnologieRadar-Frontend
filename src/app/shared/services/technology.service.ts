@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {catchError, Observable, of, tap} from "rxjs";
 import {Technology} from "../types/Technology";
 import {TechnologyInsertDTO} from "../types/DTO/TechnologyInsertDTO";
@@ -33,6 +33,15 @@ export class TechnologyService {
     return this.http.get<Technology[]>('http://localhost:3000/api/technologies').pipe(
       tap(_ => this.log('fetched technologies')),
       catchError(this.handleError<Technology[]>('getTechnologies', []))
+    );
+  }
+
+  getPublishedTechnologies(): Observable<Technology[]> {
+    const params = new HttpParams().set('published', 1);
+
+    return this.http.get<Technology[]>('http://localhost:3000/api/technologies', { params }).pipe(
+      tap(_ => this.log('fetched published technologies')),
+      catchError(this.handleError<Technology[]>('getPublishedTechnologies', []))
     );
   }
 

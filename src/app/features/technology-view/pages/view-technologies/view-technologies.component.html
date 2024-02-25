@@ -1,0 +1,83 @@
+<section class="technologiesOverview">
+  <div class="grid">
+    <div>
+      <h4>
+        Published Technologies
+      </h4>
+    </div>
+
+    <div>
+      <fieldset>
+        <legend>Group by:</legend>
+        <input type="radio" id="category" name="groupBy" [(ngModel)]="groupedByCategory" [value]="true" />
+        <label for="category">Category</label>
+        <input type="radio" id="ring" name="groupBy" [(ngModel)]="groupedByCategory" [value]="false" />
+        <label for="ring">Ring</label>
+      </fieldset>
+
+    </div>
+  </div>
+
+  @if (groupedByCategory) {
+    <div *ngFor="let group of groupedByCategoryTechnologies | keyvalue">
+      <h5 *ngIf="group.key">{{ group.key }}</h5>
+      <table>
+        <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Category</th>
+          <th scope="col" class="description-col">Description</th>
+          <th scope="col">Ring</th>
+          <th scope="col" class="description-col">Ring description</th>
+        </tr>
+        </thead>
+        <tbody>
+          @for (technology of group.value; track technology.id) {
+            <tr>
+              <td>{{ technology.name }}</td>
+              <td>{{ technology.category }}</td>
+              <td class="description-col">{{ technology.description }}</td>
+              <td>{{ technology.ring }}</td>
+              <td class="description-col">{{ technology.ring_description }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  } @else {
+    <!-- Iterate over each group and display in separate tables -->
+    <div *ngFor="let group of groupedByRingTechnologies | keyvalue">
+      <h5 *ngIf="group.key">{{ group.key }}</h5>
+      <table>
+        <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Category</th>
+          <th scope="col" class="description-col">Description</th>
+          <th scope="col">Ring</th>
+          <th scope="col" class="description-col">Ring description</th>
+        </tr>
+        </thead>
+        <tbody>
+          @for (technology of group.value; track technology.id) {
+            <tr>
+              <td>{{ technology.name }}</td>
+              <td>{{ technology.category }}</td>
+              <td class="description-col">{{ technology.description }}</td>
+              <td>{{ technology.ring }}</td>
+              <td class="description-col">{{ technology.ring_description }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+
+  @if (groupedByCategoryTechnologies.size === 0 && groupedByRingTechnologies.size === 0) {
+    <span >
+      No technologies published
+    </span>
+  }
+
+
+</section>
