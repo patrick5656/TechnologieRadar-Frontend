@@ -70,14 +70,10 @@ export class TechnologyFormComponent implements OnInit{
   }
 
   onRingDescriptionChanged() {
-    console.log('Ring description changed');
-    console.log(this.registerForm.get('ring_description')?.value);
     if (this.registerForm.get('ring_description') && this.registerForm.get('ring_description')?.value !== '') {
-      console.log('required');
       this.registerForm.get('ring')?.setValidators([Validators.required]);
       this.registerForm.get('ring_description')?.setValidators([Validators.required]);
     } else {
-      console.log(' not required');
       this.registerForm.get('ring')?.clearValidators();
       this.registerForm.get('ring_description')?.clearValidators();
     }

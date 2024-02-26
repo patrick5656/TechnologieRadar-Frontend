@@ -18,10 +18,10 @@ describe('PublishModalComponent', () => {
   const technology: Technology = {
     id: 1,
     name: 'Angular1',
-    category: Category.TECHNIQUES, // Replace with actual category
-    description: 'Some description', // Replace with actual description
+    category: Category.TECHNIQUES,
+    description: 'Some description',
     ring: Ring.ADOPT,
-    ring_description: 'Some ring description', // Replace with actual ring description
+    ring_description: 'Some ring description',
     published: true,
     createdByUserId: 1,
     createdAt: new Date()
