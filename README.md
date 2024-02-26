@@ -100,10 +100,10 @@ Ich habe mich jedoch dazu entschieden, meine Angular App modular aufzubauen für
  - Kleinere Anpassung im Layout
  - Erstellung von tests im Frontend (TechnologyService und ViewTechnologiesComponent)
 
-26.02.2024 - 3h
+26.02.2024 - 4h
  - Erstellung restlicher Komponenten tests
 
-*Aufgewendete Zeit Total: 63h* 
+*Aufgewendete Zeit Total: 64h* 
 
 
 # Fazit und Reflexion
