@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Technology} from "../../../../shared/types/Technology";
 import {TechnologyService} from "../../../../shared/services/technology.service";
-import {Category} from "../../../../shared/types/Category";
 
 
 @Component({
@@ -17,10 +16,10 @@ export class ViewTechnologiesComponent implements OnInit {
   constructor(private technologyService: TechnologyService) {}
 
   ngOnInit(): void {
-    this.getPublishedTechnologies();
+    this.loadPublishedTechnologies();
   }
 
-  getPublishedTechnologies(): void {
+  loadPublishedTechnologies(): void {
     this.technologyService.getPublishedTechnologies()
       .subscribe(publishedTechnologies => {
 

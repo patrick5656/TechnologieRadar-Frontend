@@ -15,7 +15,7 @@ export class TechnologiesOverviewComponent implements OnInit {
   constructor(private technologyService: TechnologyService) { }
 
   ngOnInit(): void {
-    this.getTechnologies();
+    this.loadTechnologies();
   }
 
   get technologyToPublish(): Technology | null {
@@ -25,11 +25,11 @@ export class TechnologiesOverviewComponent implements OnInit {
   set technologyToPublish(value: Technology | null) {
     this._technologyToPublish = value;
     if (!this._technologyToPublish) {
-      this.getTechnologies();
+      this.loadTechnologies();
     }
   }
 
-  getTechnologies(): void {
+  loadTechnologies(): void {
     this.technologyService.getTechnologies()
       .subscribe(technologies => this.technologies = technologies);
   }

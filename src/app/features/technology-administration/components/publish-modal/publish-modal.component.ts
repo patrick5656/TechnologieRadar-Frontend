@@ -54,7 +54,7 @@ export class PublishModalComponent implements OnInit{
       ring: ring,
       ring_description: data.ring_description,
     }
-    console.log(technologyPublishDto);
+
     this.technologyService.publishTechnology(technologyPublishDto).subscribe(() => this.returnFromPublishModal());
   }
 

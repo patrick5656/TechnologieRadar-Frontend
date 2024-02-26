@@ -81,7 +81,7 @@ Ich habe mich jedoch dazu entschieden, meine Angular App modular aufzubauen für
  - Hinzufügen Add Technology Button sowie Zurück Button
 
 22.02.2024 - 2h
- - Hinzufügen von einer Change History Tabelle
+ - Hinzufügen von einer Change Hi1story Tabelle
  - Schreiben in die Change History Tabelle beim Insert
 
 23.02.2024 - 7h
@@ -98,9 +98,12 @@ Ich habe mich jedoch dazu entschieden, meine Angular App modular aufzubauen für
  - Neue Ansicht erstellt für Benutzer mit Gruppierung nach Kategorie oder Einordnung
  - Ausblenden der Descriptions in der Tabelle bei kleinem Screen
  - Kleinere Anpassung im Layout
- - Erstellung von tests im Frontend
+ - Erstellung von tests im Frontend (TechnologyService und ViewTechnologiesComponent)
 
-*Aufgewendete Zeit Total: 58h* 
+26.02.2024 - 3h
+ - Erstellung restlicher Komponenten tests
+
+*Aufgewendete Zeit Total: 63h* 
 
 
 # Fazit und Reflexion
