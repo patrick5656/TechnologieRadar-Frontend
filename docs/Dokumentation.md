@@ -44,7 +44,7 @@ publiziert werden können.
 Mit einer implementierten Authentifizierung ist diese Ansicht nur für die CTO's angedacht.
 
 #### Technologie-Radar-Viewer:
-Diese Ansicht dient zum anschauen des Technologies-Stacks. Hier werden alle publizierten Technologien aufgelistet.
+Diese Ansicht dient zum Anschauen des Technologies-Stacks. Hier werden alle publizierten Technologien aufgelistet.
 Die Technologien können hierbei entweder nach der Einordnung (Ring) oder nach der Kategorie gruppiert werden.
 
 ### REST-API
@@ -105,7 +105,7 @@ Optionaler Filter: (published=1) um nur publizierte Technologien anzuzeigen
     ]
 
 **POST /api/technology**:
-Zum speichern einer neuen Technology.
+Zum Speichern einer neuen Technology.
 
     {
       "name": "Angular",
@@ -117,7 +117,7 @@ Zum speichern einer neuen Technology.
 
 
 **PUT /api/technology/{id}**:
-Zum updaten einer bestehenden Technology.
+Zum Updaten einer bestehenden Technology.
 
     {
       "name": "Updated name",
@@ -126,7 +126,7 @@ Zum updaten einer bestehenden Technology.
     }
 
 **PUT /api/technology/{id}/ring**:
-Zum anpassen der Einordnung einer Technology.
+Zum Anpassen der Einordnung einer Technology.
   
     {
       "ring": "Assess",
@@ -134,7 +134,7 @@ Zum anpassen der Einordnung einer Technology.
     }
 
 **PUT /api/technology/{id}/publish**:
-Zum publizieren einer Technology.
+Zum Publizieren einer Technology.
 
     {
       "ring": "Assess",
@@ -197,9 +197,9 @@ Komponenten und Services, welche von mehreren Features verwendet werden, sind im
 ```
 
 ### Change History
-Es wurde entschieden, dass Tracking von Technology-Anpassung über das Backend zu regeln.
-Bei allen POST und PUT Endpunkten wird neben der eigentlichen Anpassungen ein entsprechend TechnologyChangeEntry Eintrag erstellt.
-Dabei werden alle neue Werte gespeichert und mit der effektiven Technology verknüpft. Ein solcher Eintrag enthält auch
+Es wurde entschieden, das Tracking von Technology-Anpassungen über das Backend zu regeln.
+Bei allen POST und PUT Endpunkten wird neben der eigentlichen Anpassungen ein entsprechender TechnologyChangeEntry Eintrag erstellt.
+Dabei werden alle neuen Werte gespeichert und mit der effektiven Technology verknüpft. Ein solcher Eintrag enthält auch
 einen Eintrag, um welche Anpassung es sich handelt.
 
 Dabei sind folgende Änderungen möglich:
