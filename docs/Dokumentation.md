@@ -5,7 +5,7 @@ Author: Patrick Henseler
 Um den gelernten Inhalt aus dem Modul WEBLAB direkt anwenden zu können, soll eine Projektarbeit im Umfang von 60h erstellt werden.
 Ich habe mich dazu entschieden, die vorgeschlagene Projektidee [Technology Radar](https://github.com/web-programming-lab/web-programming-lab-projekt?tab=readme-ov-file) umzusetzen.
 
-Dabei konnten fast alle Anforderungen umgesetzt werden. Noch offene Aufgaben sind [hier](#Weiterführende Arbeiten) aufgeführt.
+Dabei konnten fast alle Anforderungen umgesetzt werden. Noch offene Aufgaben sind [hier](##Weiterführende Arbeiten) aufgeführt.
 
 ## Lösungsstrategie
 
@@ -146,20 +146,20 @@ Der NodeJS Service benötigt eine MySQL Datenbank. Das ERD von der Datenbank sie
 Für die Erstellung der Datenbank kann das Skript "my_sql_init.sql" verwendet werden. 
 ![Datenbank ERD](images/Datenbank_ERD.png)
 
-# Laufzeitsicht
+## Laufzeitsicht
 Im wesentlichen gibt es drei Prozessabläufe, um Technologien zu erstellen, aktualisieren und publizieren. 
 Der Ablauf dieser Prozesse wird im folgenden durch Diagramme aufgezeigt.
 
 Technology erstellen:
-![Prozessablauf Technology erstellen](images/TechnologyErstellen_Prozessablauf.png)
+![Prozessablauf Technology erstellen](images/TechnologyErstellen_Prozessablauf.PNG)
 
 Technology aktualisieren:
-![Prozessablauf Technology aktualisieren](images/TechnologyUpdaten_Prozessablauf.png)
+![Prozessablauf Technology aktualisieren](images/TechnologyUpdaten_Prozessablauf.PNG)
 
 Technology publizieren:
-![Prozessablauf_Technology_publizieren](images/TechnologyPublizieren_Prozessablauf.png)
+![Prozessablauf_Technology_publizieren](images/TechnologyPublizieren_Prozessablauf.PNG)
 
-# Verteilungssicht
+## Verteilungssicht
 Aktuell wird die Applikation noch nicht deployt. Es ist möglich, das Frontend und Backend getrennt zu deployen. 
 In diesem Fall muss CORS erlaubt werden.
 
@@ -168,12 +168,12 @@ Im Frontend muss beim Deployment im TechnologyService die verwendete URL zum Ser
 Für ein Deployment vom Backend wird eine MySQL Datenbank benötigt. Für die Erstellung der Datenbank muss das "my_sql_init.sql" ausgeführt werden.
 Die Zugangsdaten für den Zugriff auf die Datenbank müssen in den Enviroment Variablen angepasst werden.
 
-# Querschnittliche Konzepte
+## Querschnittliche Konzepte
 Authentifizierung:
 Aktuell wird keine Authentifizierung und Autorisierung durchgeführt.
 
 
-# Architekturentscheidungen
+## Architekturentscheidungen
 Mit Standalone Komponenten ist es möglich, komplett auf Module in einer Angular App zu verzichten.
 Ich habe mich jedoch dazu entschieden, meine Angular App modular aufzubauen, da aus meiner Sicht so die 
 Applikation strukturierter ist.
@@ -225,14 +225,14 @@ Neben den Unittests wurden mit Cypress e2e tests erstellt.
 Im Backend wurden Unittests erstellt. Die effektiven Datenbank Abfragen wurden in eine eigene Klasse ausgelagert,
 welche in den Testfällen mit der Library Sinon gemockt werden.
 
-# Qualitätsanforderungen
+## Qualitätsanforderungen
 Der Technologie-Radar-Viewer soll neben der Desktop-Ansicht, auch für die Mobile-Ansicht optimiert sein.
 
 Der Technologie-Radar-Viewer soll innert 1s geladen sein.
 
 Sämtliche Änderungen an Technologie-Einträgen sollen historisiert sein.
 
-# Weiterführende Arbeiten
+## Weiterführende Arbeiten
 - Implementierung der Authentifizierung und Autorisierung mit den Rollen 'CTO' und 'Mitarbeiter'
 - Validierung ob die Technology nicht bereits publiziert worden ist vor dem publizieren. (Im Happy-Case kann dieser Fall nicht eintreten) 
 - Deployment der Applikation
