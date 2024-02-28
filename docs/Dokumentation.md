@@ -1,39 +1,55 @@
-# Dokumentation zur Umsetzung des Technology-Radars
+# Architekturdokumentation
+Author: Patrick Henseler
 
-# Einführung
+## Einführung
 Um den gelernten Inhalt aus dem Modul WEBLAB direkt anwenden zu können, soll eine Projektarbeit im Umfang von 60h erstellt werden.
 Ich habe mich dazu entschieden, die vorgeschlagene Projektidee [Technology Radar](https://github.com/web-programming-lab/web-programming-lab-projekt?tab=readme-ov-file) umzusetzen.
 
-# Lösungsstrategie
-Die Applikation verwendet eine Single Page Application (SPA) Architektur.
+Dabei konnten fast alle Anforderungen umgesetzt werden. Noch offene Aufgaben sind [hier](#Weiterführende Arbeiten) aufgeführt.
 
-Das Frontend wurde mit Angular und TypeScript erstellt. Für das Backend wurde NodeJS und eine MySQL Datenbank verwendet.
-Für die Kommunikation wurde eine REST-API definiert.
+## Lösungsstrategie
 
-![Alt-Text](images/TechnologyRadar_Aufbau.png)
+### Entwurfsentscheidung
+Die Applikation verwendet eine Single Page Application (SPA) Architektur. 
+
+Die Applikation besteht im wesentlichen aus einem:
+* Frontend für das (User Interface)
+* Backend für die Datenspeicherung und Aufbereitung
+
+Für die Kommunikation zwischen Frontend und Backend wurde eine REST-API erstellt.
+
+### Technologieentscheidung.
+Für das Frontend wird Angular mit Typescript verwendet.
+
+Für das Backend wird NodeJS verwendet.
+
+Als Datenbank wird eine MySQL Datenbank verwendet.
+
+### Aufbau des Gesamtssystems
+
+![Technology Radar Aufbau](images/TechnologyRadar_Aufbau.png)
 
 Die Versionierung des Source Code wird über github gemacht. [Frontend](https://github.com/patrick5656/TechnologieRadar-Frontend), 
 [Backend](https://github.com/patrick5656/TechnologieRadar_Backend)
 
-# Bausteinsicht
-TODO: Client / Server
+## Bausteinsicht
 
-Ansichten des Clients
+### Client-Ansichten
 
-## Client-Ansichten
-Technologie-Radar-Administration:
-Technologien können in dieser Ansicht vom CTO oder einem Tech-Lead verwaltet werden. Dazu gehört, neue Technologien hinzufügen, bestehende aktualisieren und löschen. Ausserdem sollen Technologien publiziert werden können.
+#### Technologie-Radar-Administration:
+Technologien können in dieser Ansicht verwaltet werden. 
+Dazu gehört, neue Technologien hinzufügen und bestehende zu aktualisieren. Ausserdem sollen Technologien 
+publiziert werden können.
 
-einem Technologie-Radar-Viewer:
-Diese Ansicht dient den Mit
-ie-Radar-Viewer, auf welcher der Technologie-Radar resp. die Technologien allen Mitarbeiter eingesehen werden können.
+Mit einer implementierten Authentifizierung ist diese Ansicht nur für die CTO's angedacht.
 
-System-Administration (Optionale Ansicht):
-In dieser Ansicht soll es möglich sein, neue Mandanten zu erfassen und zu verwalten. Es soll ausserdem möglich sein, neue Personen zu einem Mandanten hinzuzufügen.
+#### Technologie-Radar-Viewer:
+Diese Ansicht dient zum anschauen des Technologies-Stacks. Hier werden alle publizierten Technologien aufgelistet.
+Die Technologien können hierbei entweder nach der Einordnung (Ring) oder nach der Kategorie gruppiert werden.
 
-EVTL noch wie die Komponenten strukturiert sind.
+### REST-API
+Das Backend stellt die folgende REST-API für das Frontend zur Verfügung.
 
-REST-API
 **GET /api/technology/{id}**:
 Zum Lesen einer spezifischen Technology
 
@@ -125,14 +141,27 @@ Zum publizieren einer Technology.
       "ring_description": "Updated Ring description"
     }
 
-TODO: ERD von der Datenbank
-
+### Datenbank 
+Der NodeJS Service benötigt eine MySQL Datenbank. Das ERD von der Datenbank sieht wie folgt aus. 
+Für die Erstellung der Datenbank kann das Skript "my_sql_init.sql" verwendet werden. 
+![Datenbank ERD](images/Datenbank_ERD.png)
 
 # Laufzeitsicht
-Ablauf eines Requests
+Im wesentlichen gibt es drei Prozessabläufe, um Technologien zu erstellen, aktualisieren und publizieren. 
+Der Ablauf dieser Prozesse wird im folgenden durch Diagramme aufgezeigt.
+
+Technology erstellen:
+![Prozessablauf Technology erstellen](images/TechnologyErstellen_Prozessablauf.png)
+
+Technology aktualisieren:
+![Prozessablauf Technology aktualisieren](images/TechnologyUpdaten_Prozessablauf.png)
+
+Technology publizieren:
+![Prozessablauf_Technology_publizieren](images/TechnologyPublizieren_Prozessablauf.png)
 
 # Verteilungssicht
-Aktuell wurde die Applikation noch nicht deployt. Es ist möglich, das Frontend und Backend getrennt zu deployen. In diesem Fall muss CORS erlaubt werden.
+Aktuell wird die Applikation noch nicht deployt. Es ist möglich, das Frontend und Backend getrennt zu deployen. 
+In diesem Fall muss CORS erlaubt werden.
 
 Im Frontend muss beim Deployment im TechnologyService die verwendete URL zum Server angepasst.
 
@@ -144,13 +173,57 @@ Authentifizierung:
 Aktuell wird keine Authentifizierung und Autorisierung durchgeführt.
 
 
-# Entwurfsentscheidungen
+# Architekturentscheidungen
 Mit Standalone Komponenten ist es möglich, komplett auf Module in einer Angular App zu verzichten.
-Ich habe mich jedoch dazu entschieden, meine Angular App modular aufzubauen für Features, da aus meiner Sicht so die Applikation strukturierter ist.
+Ich habe mich jedoch dazu entschieden, meine Angular App modular aufzubauen, da aus meiner Sicht so die 
+Applikation strukturierter ist.
 
-TODO: Routing
+Die Applikation ist im wesentlichen wie folgt aufgebaut. Es wird pro Feature ein eigenes Directory erstellt. 
+Komponenten und Services, welche von mehreren Features verwendet werden, sind im Directory shared abgelegt.
+```
+📦 app
+├─ features
+│  ├─ feature 1
+│  │  ├─ components
+│  │  └─ pages
+│  └─ feature 2
+└─ shared
+   ├─ services
+   └─ types
+```
 
-TODO: Change History wird über das Backend erledigt.
+### Change History
+Es wurde entschieden, dass Tracking von Technology-Anpassung über das Backend zu regeln.
+Bei allen POST und PUT Endpunkten wird neben der eigentlichen Anpassungen ein entsprechend TechnologyChangeEntry Eintrag erstellt.
+Dabei werden alle neue Werte gespeichert und mit der effektiven Technology verknüpft. Ein solcher Eintrag enthält auch
+einen Eintrag, um welche Anpassung es sich handelt.
+
+Dabei sind folgende Änderungen möglich:
+ * created
+ * update
+ * change_ring
+ * publish
+
+### Technology aktualisieren
+Es wurde entschieden, dass Technology anpassen (Name, Description und Category) sowie anpassen der Einordnung
+(Ring und Ring Description) im gleichen Formular durchzuführen. 
+
+Dabei wird geprüft:
+ * Wurde der Name, die Category oder die Description angepasst? --> PUT /api/technology{id} request ausführen.
+ * Wurde der Ring oder die Ring description angepasst? --> PUT /api/technology{id}/ring request ausführen.
+
+Dabei können beide oder auch nur ein Request ausgeführt werden.
+
+### Testing
+
+#### Frontend
+Im Frontend wurden zum einen Unittests erstellt. Dabei werden Services mithilfe von jasmine gemockt.
+
+Neben den Unittests wurden mit Cypress e2e tests erstellt.
+
+#### Backend
+Im Backend wurden Unittests erstellt. Die effektiven Datenbank Abfragen wurden in eine eigene Klasse ausgelagert,
+welche in den Testfällen mit der Library Sinon gemockt werden.
 
 # Qualitätsanforderungen
 Der Technologie-Radar-Viewer soll neben der Desktop-Ansicht, auch für die Mobile-Ansicht optimiert sein.
@@ -158,4 +231,9 @@ Der Technologie-Radar-Viewer soll neben der Desktop-Ansicht, auch für die Mobil
 Der Technologie-Radar-Viewer soll innert 1s geladen sein.
 
 Sämtliche Änderungen an Technologie-Einträgen sollen historisiert sein.
+
+# Weiterführende Arbeiten
+- Implementierung der Authentifizierung und Autorisierung mit den Rollen 'CTO' und 'Mitarbeiter'
+- Validierung ob die Technology nicht bereits publiziert worden ist vor dem publizieren. (Im Happy-Case kann dieser Fall nicht eintreten) 
+- Deployment der Applikation
 
