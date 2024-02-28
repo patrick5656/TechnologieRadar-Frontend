@@ -5,7 +5,7 @@ Author: Patrick Henseler
 Um den gelernten Inhalt aus dem Modul WEBLAB direkt anwenden zu können, soll eine Projektarbeit im Umfang von 60h erstellt werden.
 Ich habe mich dazu entschieden, die vorgeschlagene Projektidee [Technology Radar](https://github.com/web-programming-lab/web-programming-lab-projekt?tab=readme-ov-file) umzusetzen.
 
-Dabei konnten fast alle Anforderungen umgesetzt werden. Noch offene Aufgaben sind [hier](##Weiterführende Arbeiten) aufgeführt.
+Dabei konnten fast alle Anforderungen umgesetzt werden. Noch offene Aufgaben werden im Kapitel "Weiterführende Arbeiten" aufgeführt.
 
 ## Lösungsstrategie
 
@@ -150,13 +150,17 @@ Für die Erstellung der Datenbank kann das Skript "my_sql_init.sql" verwendet we
 Im wesentlichen gibt es drei Prozessabläufe, um Technologien zu erstellen, aktualisieren und publizieren. 
 Der Ablauf dieser Prozesse wird im folgenden durch Diagramme aufgezeigt.
 
+
 Technology erstellen:
+
 ![Prozessablauf Technology erstellen](images/TechnologyErstellen_Prozessablauf.PNG)
 
 Technology aktualisieren:
+
 ![Prozessablauf Technology aktualisieren](images/TechnologyUpdaten_Prozessablauf.PNG)
 
 Technology publizieren:
+
 ![Prozessablauf_Technology_publizieren](images/TechnologyPublizieren_Prozessablauf.PNG)
 
 ## Verteilungssicht
